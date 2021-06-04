@@ -1,0 +1,51 @@
+
+<div style="text-align: left;">
+  <form [formGroup]="searchForm">
+  <div class="row">
+    <div class="col-md-3">
+      <label>Search :</label>
+      <input type="text" class="form-control" placeholder="Search Text"  formControlName="search" (keyup)="search($event)">
+  </div>
+  <!-- <div class="col-md-3">
+    <label style="position: absolute;
+    bottom: -44px;
+    left: -360px;">Selected Data :  {{this.selectedname}}</label>
+   
+</div> -->
+  </div> 
+  
+</form>
+</div>
+<br>
+<div class="container" style="margin-right: 0px;">
+  <div class="row">
+    Total Count:{{totalcount}}
+  </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Login</th>
+          <th>Node_Id</th>
+          <th>Score</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody >
+     <tr *ngFor="let name of names " style="cursor: pointer;">
+       <td>{{name.id}}</td>
+       <td>{{name.login}}</td>
+       <td>{{name.node_id}}</td>
+       <td>{{name.score}}</td>
+       <td>{{name.type}}</td>
+       <td>
+         <button class="btn btn-primary" style="cursor: pointer;" (click)="SelectedName(name.login)">View Profile</button>&nbsp;
+         <button class="btn btn-primary" style="cursor: pointer;" (click)="chart(name.login)">View Followers</button></td>
+     </tr>
+     <!-- <tr *ngIf="this.searchForm.value.search.length===0">{{this.msg}}</tr> -->
+      </tbody>
+    </table>
+    
+  </div>
+  
